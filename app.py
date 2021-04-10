@@ -10,10 +10,10 @@ app.config["MONGO_URI"] = "mongodb://localhost:27017/mars_app"
 mongo = PyMongo(app)
 
 # Define the route for the HTML page
-app.route("/")
+@app.route("/")
 def index():
-    mars = mongo.db.mars.find_one()
-    return render_template("html.index", mars=mars)
+   mars = mongo.db.mars.find_one()
+   return render_template("index.html", mars=mars)
 
 # Add scraping route 
 @app.route("/scrape")
